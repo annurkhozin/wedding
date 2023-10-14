@@ -1,3 +1,20 @@
+// OK
+const tamu = () => {
+    let name = (new URLSearchParams(window.location.search)).get('to') ?? '';
+
+    if (name.length == 0) {
+        document.getElementById('nama-tamu').remove();
+        return;
+    }
+
+    let div = document.createElement('div');
+    div.classList.add('m-2');
+    div.innerHTML = `<p class="mt-0 mb-1 mx-0 p-0 text-light">Kepada Yth Bapak/Ibu/Saudara/i</p><h2 class="text-light">${escapeHtml(name)}</h2>`;
+
+    // document.getElementById('form-nama').value = escapeHtml(name);
+    document.getElementById('nama-tamu').appendChild(div);
+};
+
 const progressBar = (() => {
     const assets = document.querySelectorAll('img');
     let totalAssets = assets.length;
@@ -222,24 +239,6 @@ const modalFoto = (img) => {
     document.getElementById('showModalFoto').src = img.src;
     (new bootstrap.Modal('#modalFoto')).show();
 };
-
-// OK
-const tamu = () => {
-    let name = (new URLSearchParams(window.location.search)).get('to') ?? '';
-
-    if (name.length == 0) {
-        document.getElementById('nama-tamu').remove();
-        return;
-    }
-
-    let div = document.createElement('div');
-    div.classList.add('m-2');
-    div.innerHTML = `<p class="mt-0 mb-1 mx-0 p-0 text-light">Kepada Yth Bapak/Ibu/Saudara/i</p><h2 class="text-light">${escapeHtml(name)}</h2>`;
-
-    // document.getElementById('form-nama').value = escapeHtml(name);
-    document.getElementById('nama-tamu').appendChild(div);
-};
-
 
 // OK
 const opacity = (nama) => {
